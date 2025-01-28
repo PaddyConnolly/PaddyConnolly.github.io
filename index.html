@@ -1,50 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paddy Connolly | Portfolio</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1f211f;
-            color: white;
+            overflow-y: scroll;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            padding: 80px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .header {
-            background: #1f211f;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #1f211f;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        .projects .card {
-            margin: 15px 0;
-            color: black;
 
+        .navbar {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            z-index: 1000;
         }
+
+        .scroll-content {
+            padding-top: 120px;
+        }
+
         footer {
-            background-color: #343a40;
+            padding: 20px;
+            background-color: #1f211f;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
+        }
+
+        .card {
+            height: 100%;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header text-center text-white py-2">
         <h1>Paddy Connolly</h1>
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-#1f211f">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1f211f;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">My Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,52 +93,55 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container mt-5">
+    <div class="scroll-container">
         <!-- CV Section -->
         <section id="cv">
-            <h2>CV</h2>
-            <p class="text-light">Download my CV or view a brief summary below.</p>
-            <a href="cv.pdf" class="btn btn-primary" download>Download CV</a>
+            <div class="container scroll-content">
+                <h2>CV</h2>
+                <p class="text-dark">Download my CV or view a brief summary below.</p>
+                <a href="cv.pdf" class="btn btn-primary" download>Download CV</a>
 
-            <div class="mt-4">
-                <h3>Summary</h3>
-                <ul>
-                    <li><strong>Education:</strong> BSc in Computer Science at University of Warwick</li>
-                    <li><strong>Experience:</strong> 2 month Data Engineering internship</li>
-                    <li><strong>Specialisation:</strong> Dissertation exploring the impacts of Machine Learning models in football</li>
-                </ul>
+                <div class="mt-4">
+                    <h3>Summary</h3>
+                    <ul>
+                        <li><strong>Education:</strong> BSc in Computer Science at University of Warwick</li>
+                        <li><strong>Experience:</strong> 2 month Data Engineering internship</li>
+                        <li><strong>Specialisation:</strong> Dissertation exploring the impacts of Machine Learning models in football</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects mt-5">
-            <h2>Projects</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 1</h5>
-                            <p class="card-text">Description of project 1. Technologies used:</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+        <section id="projects">
+            <div class="container scroll-content">
+                <h2>Projects</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 1</h5>
+                                <p class="card-text">Description of project 1. Technologies used:</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">Description of project 2. Technologies used: </p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 2</h5>
+                                <p class="card-text">Description of project 2. Technologies used: </p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 3</h5>
-                            <p class="card-text">Description of project 3. Technologies used: </p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 3</h5>
+                                <p class="card-text">Description of project 3. Technologies used: </p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,17 +149,19 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="mt-5">
-            <h2>Contact</h2>
-            <p>If you would like to get in touch, please use the contact details below: </p>
-            <p><strong>Email:</strong> paddy1921@icloud.com</p>
-            <p><strong>Phone:</strong> +44 7799 423 691</p>
+        <section id="contact">
+            <div class="container scroll-content">
+                <h2>Contact</h2>
+                <p>If you would like to get in touch, please use the contact details below: </p>
+                <p><strong>Email:</strong> paddy1921@icloud.com</p>
+                <p><strong>Phone:</strong> +44 7799 423 691</p>
+            </div>
         </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Paddy Connolly. All Rights Reserved.</p>
+        <p>© 2025 Paddy Connolly. All Rights Reserved.</p>
     </footer>
 
     <!-- Bootstrap JS -->
