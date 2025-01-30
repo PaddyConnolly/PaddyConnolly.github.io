@@ -146,11 +146,14 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
-            text-align: center;
+            text-align: left;
             width: 700px;
             height: 700px;
             margin: 15px;
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             vertical-align: top;
             position: relative;
             scroll-snap-align: start;
@@ -160,6 +163,10 @@
         
         .card:hover {
             transform: scale(1.05);
+        }
+
+        .card-content {
+            flex: 1;
         }
     
         /* Scroll Buttons */
@@ -190,13 +197,14 @@
             right: 10px;
         }
 
-                /* Small Icons Row */
+        /* Small Icons Row */
         .icons {
             display: flex;
             justify-content: left;
             gap: 10px; /* Space between the icons */
             margin-top: 10px; /* Space between title and icons */
             margin-bottom: 10px; /* Space between icons and description */
+            justify-content: flex-start;
         }
         
         .small-icon {
@@ -281,30 +289,32 @@
 <section id="experience">
     <div class="experience">
         <h2 class="text-center mb-4">Experience</h2>
-        
         <div class="scroll-wrapper">
             <button id="scroll-left" class="scroll-btn">❮</button>
             <div class="scroll">
                 <div class="card">
+
+                    <div class="card-content">
+                        <h3 class="role">Data Engineer Intern</h3>
+                        <h5 class="company">DSP Explorer</h5>
+                        <h7 class="date">10 Jul 2023 - 18 Aug 2023</h7>
+                        <!-- Small Icons Row -->
+                        <div class="icons">
+                            <img src="assets/powerbi.png" alt="Icon 1" class="small-icon">
+                            <img src="assets/sql.png" alt="Icon 2" class="small-icon">
+                            <img src="assets/devops.png" alt="Icon 3" class="small-icon">
+                            <img src="assets/excel.png" alt="Icon 4" class="small-icon">
+                        </div>
+                        <p>Description of experience. Technologies used:</p>
+                        <ul class="details">
+                            <li>Technology 1</li>
+                            <li>Technology 2</li>
+                            <li>Technology 3</li>
+                        </ul>
+                    </div>
                     <div class="icon">
                         <img src="assets/dsp.png" alt="Icon" />
                     </div>
-                    <h3 class="role">Data Engineer Intern</h3>
-                    <h5 class="company">DSP Explorer</h5>
-                    <h7 class="date">10 Jul 2023 - 18 Aug 2023</h7>
-                    <!-- Small Icons Row -->
-                    <div class="icons">
-                        <img src="assets/powerbi.png" alt="Icon 1" class="small-icon">
-                        <img src="assets/sql.png" alt="Icon 2" class="small-icon">
-                        <img src="assets/devops.png" alt="Icon 3" class="small-icon">
-                        <img src="assets/excel.png" alt="Icon 4" class="small-icon">
-                    </div>
-                    <p>Description of experience. Technologies used:</p>
-                    <ul class="details">
-                        <li>Technology 1</li>
-                        <li>Technology 2</li>
-                        <li>Technology 3</li>
-                    </ul>
                 </div> 
             </div>
             <button id="scroll-right" class="scroll-btn">❯</button>
