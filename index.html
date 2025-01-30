@@ -389,10 +389,10 @@
                 
                 <!-- Buttons Section -->
                 <div class="button-container">
-                    <a href="#about"><button class="btn" id="about-btn">About</button></a>
-                    <a href="#experience"><button class="btn" id="experience-btn">Experience</button></a>
-                    <a href="#projects"><button class="btn" id="projects-btn">Projects</button></a>
-                    <a href="#contact"><button class="btn" id="contact-btn">Contact</button></a>
+                    <a href="#about"><button class="btn"">About</button></a>
+                    <a href="#experience"><button class="btn">Experience</button></a>
+                    <a href="#projects"><button class="btn">Projects</button></a>
+                    <a href="#contact"><button class="btn">Contact</button></a>
                 </div>
             </div>
         </section>
@@ -534,7 +534,7 @@
 
         <!-- Spare Section -->
         <section id="contact">
-            <h2 class="section-title">CONTACT</h2>
+            <h2 class="section-title" style="position: relative; bottom: 50px;">CONTACT</h2>
             <div class="contact-container">
                 <h3>Please feel free to reach out if you'd like to collaborate or if you have any questions! You can also check out my CV for more about my experience.</h3>
                 <div class="contact-details">
@@ -581,18 +581,6 @@
             });
         });
     </script>
-    <script>
-         document.getElementById('contact-btn').addEventListener('click', function () {
-        // Get the section to scroll to
-        const targetSection = document.getElementById('contact');
-        
-        // Scroll to the section smoothly
-        targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start' // Align to the start of the section (top of the viewport)
-        });
-    });
 
-    </script>
 </body>
 </html>
