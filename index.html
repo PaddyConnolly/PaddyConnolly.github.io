@@ -50,6 +50,7 @@
           border-radius: 50%;
           border: 1px solid grey;
           background-color: transparent;
+          z-index: -1;
           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     
@@ -64,6 +65,7 @@
           border: 1px solid grey;
           border-radius: 50%;
           background-color: transparent;
+          z-index: -1;
           animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
         
@@ -227,7 +229,6 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease; 
-            z-index: 5;
         }
         
         .btn:hover {
