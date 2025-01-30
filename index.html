@@ -169,9 +169,14 @@
             transform: scale(1.05);
         }
 
+        .no-hover:hover {
+            transform: none;
+        }
+
         .card-content {
             flex: 1;
             overflow: hidden;
+            width: 100%;
         }
     
         /* Scroll Buttons */
@@ -447,18 +452,21 @@ findings in a clear and concise manner through visually appealing reports and da
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+         document.addEventListener("DOMContentLoaded", function () {
             const scrollContainer = document.querySelector(".scroll");
             const leftButton = document.getElementById("scroll-left");
             const rightButton = document.getElementById("scroll-right");
             const cards = scrollContainer.querySelectorAll(".card"); // Select all cards inside the scroll container
         
-            // Hide arrows if there's only one card
+            // Hide arrows & disable hover effect if there's only one card
             if (cards.length <= 1) {
                 leftButton.style.display = 'none';
                 rightButton.style.display = 'none';
+                
+                // Remove hover effect by adding a class
+                cards.forEach(card => card.classList.add("no-hover"));
             }
-        
+            
             leftButton.addEventListener("click", function () {
                 scrollContainer.scrollBy({ left: -320, behavior: "smooth" });
             });
