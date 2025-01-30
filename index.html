@@ -1,265 +1,269 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    /* Global Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-        --navbar-height: 70px;
-    }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px; /* Add padding for the navbar */
+        }
 
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: var(--navbar-height);
-    }
+        body {
+            padding-top: 70px; /* Add padding to body to prevent content from going under navbar */
+            background-color: #1f211f;
+            color: white;
+        }
 
-    body {
-        padding-top: var(--navbar-height);
-        background-color: #1f211f;
-        color: white;
-    }
+        .scroll-container {
+            height: calc(100vh - 70px); /* Subtract navbar height */
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
 
-    /* Scrollable Full-Page Sections */
-    .scroll-container,
-    section {
-        height: calc(100vh - var(--navbar-height));
-        scroll-snap-align: start;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
+        section {
+            height: calc(100vh - 70px);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .scroll-container {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scrollbar-width: none;
-    }
+        .section-title {
+            letter-spacing: 20px;
+            text-align: center;
+        }
 
-    /* Navbar */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--navbar-height);
-        z-index: 1000;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-    }
+        .navbar {
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px; /* Fixed height for navbar */
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
-    .nav-links a,
-    .navbar-brand {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-    }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
 
-    .nav-links a:hover,
-    .navbar-brand:hover {
-        color: #aaa;
-    }
+        .nav-links a:hover {
+            color: #aaa;
+        }
 
-    .nav-icon {
-        width: 40px;
-        height: 40px;
-        transition: transform 0.3s ease, opacity 0.3s;
-        filter: invert(1);
-    }
+        .navbar-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
 
-    .nav-icon:hover {
-        transform: scale(1.05);
-    }
+        .navbar-brand:hover {
+            color: #aaa;
+        }
 
-    /* Hero Section */
-    .hero-section {
-        text-align: center;
-        min-height: calc(100vh - var(--navbar-height));
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+        .nav-icon {
+            width: 40px; /* Adjust size as needed */
+            height: 40px;
+            transition: transform 0.3s ease, opacity 0.3s;
+            -webkit-filter: invert(1);
+            filter: invert(1);
+        }
 
-    .hero-section h1 {
-        font-size: 4rem;
-        margin-bottom: 20px;
-    }
+        .nav-icon:hover {
+            transform: scale(1.05);
+        }
 
-    /* Project Cards */
-    .projects-container {
-        width: 100%;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .scroll-wrapper {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
+        .hero-section {
+            background-color: #1f211f;
+            color: white;
+            text-align: center;
+            min-height: calc(100vh - 70px); /* Adjust for navbar */
+        }
 
-    .scroll {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 20px;
-        width: 100%;
-        scrollbar-width: none;
-        scroll-behavior: smooth;
-        z-index: 9;
-    }
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
 
-    .scroll::-webkit-scrollbar {
-        display: none;
-    }
+        .card {
+            height: 100%;
+            margin-bottom: 20px;
+        }
 
-    /* Card */
-    .card {
-        background-color: #1f211f;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: left;
-        width: 600px;
-        height: 500px;
-        margin: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start; /* Ensures content starts at the top */
-        position: relative;
-        scroll-snap-align: start;
-        box-sizing: border-box;
-        flex-shrink: 0;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-    }
+        .projects-container {
+            width: 100%;
+            padding: 40px;
+        }
 
-    .card:hover {
-        transform: scale(1.05);
-    }
 
-    .no-hover:hover {
-        transform: none;
-    }
+        .scroll-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-    .card-content {
-        flex: 1;
-        overflow: hidden;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+        .scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px;
+            width: 100%;
+            scrollbar-width: none;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+            z-index: 9;
+        }
+    
+        .scroll::-webkit-scrollbar {
+            display: none;
+        }
+    
+        /* General Styling for Project Card */
+        .card {
+            background-color: #1f211f;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            width: 600px;
+            height: 600px;
+            margin: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            vertical-align: top;
+            position: relative;
+            scroll-snap-align: start;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-    /* Scroll Buttons */
-    .scroll-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        padding: 10px 15px;
-        border-radius: 50%;
-        transition: background 0.3s;
-        z-index: 10;
-    }
+        .no-hover:hover {
+            transform: none;
+        }
 
-    .scroll-btn:hover {
-        background: rgba(255, 255, 255, 0.5);
-    }
+        .card-content {
+            flex: 1;
+            overflow: hidden;
+            width: 100%;
+        }
+    
+        /* Scroll Buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        
+        .scroll-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        #scroll-left {
+            left: 10px;
+        }
+        
+        #scroll-right {
+            right: 10px;
+        }
 
-    #scroll-left {
-        left: 10px;
-    }
+        /* Small Icons Row */
+        .icons {
+            display: flex;
+            justify-content: left;
+            gap: 10px; /* Space between the icons */
+            margin-top: 10px; /* Space between title and icons */
+            margin-bottom: 10px; /* Space between icons and description */
+            justify-content: flex-start;
+        }
+        
+        .small-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%; /* Circular icon */
+            object-fit: cover; /* Ensures the icon fits well inside the circle */
+            border: 2px solid #ddd; /* Optional border for better visibility */
+        }
 
-    #scroll-right {
-        right: 10px;
-    }
+        .icon {
+            width: 150px; /* Adjust to the size you want */
+            height: 150px; /* Adjust to the size you want */
+            border-radius: 50%; /* This makes it circular */
+            background-color: white; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centers the image within the circle */
+            overflow: hidden; /* Ensures the image fits within the circle */
+        }
 
-    /* Icons */
-    .icons {
-        display: flex;
-        gap: 10px;
-        margin: 10px 0;
-        justify-content: flex-start;
-    }
+        .icon img {
+            width: auto; /* Maintain aspect ratio */
+            height: 100%; /* Make the height fill the container */
+            object-fit: contain; /* Prevent zooming or cropping */
+        }
 
-    .icon,
-    .small-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        border-radius: 50%;
-        border: 2px solid #ddd;
-        object-fit: cover;
-    }
+        .role {
+            font-family: "Segoe UI";
+            font-weight: 300;
+        }
 
-    .icon {
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-    }
+        .company {
+            font-family: "Segoe UI";
+            font-weight: 700;
+            color: #68b2a0;
+        }
 
-    .icon img {
-        height: 100%;
-        object-fit: contain;
-    }
+        .details {
+            width: 100%;
+        }
 
-    .small-icon {
-        width: 50px;
-        height: 50px;
-    }
+        .details li {
+            width: 100%; 
+            word-wrap: break-word;
+            overflow-wrap: break-word; 
+        }
 
-    /* Role & Company */
-    .role {
-        font-family: "Segoe UI";
-        font-weight: 300;
-    }
-
-    .company {
-        font-family: "Segoe UI";
-        font-weight: 700;
-        color: #68b2a0;
-    }
-
-    /* Details List */
-    .details {
-        width: 100%;
-    }
-
-    .details li {
-        width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-</style>
-
+    </style>
 
 </head>
 <body>
@@ -444,9 +448,6 @@ findings in a clear and concise manner through visually appealing reports and da
             <p>This section can be customized for additional information or features.</p>
         </section>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
          document.addEventListener("DOMContentLoaded", function () {
             const scrollContainer = document.querySelector(".scroll");
