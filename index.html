@@ -110,12 +110,7 @@
             font-size: 4rem;
             margin-bottom: 20px;
         }
-
-        .card {
-            height: 100%;
-            margin-bottom: 20px;
-        }
-
+        
         .projects-container {
             width: 100%;
             padding: 40px;
@@ -157,6 +152,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: stretch;
             vertical-align: top;
             position: relative;
             scroll-snap-align: start;
@@ -164,7 +160,55 @@
             flex-shrink: 0;
             overflow: hidden;
         }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between; /* Ensures even spacing */
+            width: 100%;
+        }
         
+        .top-section {
+            display: flex;
+            flex-direction: row; /* Align text + large icon side by side */
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .text-info {
+            flex: 1; /* Allows text to take as much space as possible */
+        }
+        
+        .icon {
+            width: 100px; /* Adjusted size */
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevents shrinking */
+        }
+        
+        .icon img {
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .bottom-section {
+            margin-top: 15px;
+            flex-grow: 1; /* Allows list to take up remaining space */
+            overflow: hidden;
+        }
+        
+        .details {
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+  
         .card:hover {
             transform: scale(1.05);
         }
@@ -172,13 +216,7 @@
         .no-hover:hover {
             transform: none;
         }
-
-        .card-content {
-            flex: 1;
-            overflow: hidden;
-            width: 100%;
-        }
-    
+  
         /* Scroll Buttons */
         .scroll-btn {
             position: absolute;
@@ -226,23 +264,6 @@
             border: 2px solid #ddd; /* Optional border for better visibility */
         }
 
-        .icon {
-            width: 150px; /* Adjust to the size you want */
-            height: 150px; /* Adjust to the size you want */
-            border-radius: 50%; /* This makes it circular */
-            background-color: white; /* White background */
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Centers the image within the circle */
-            overflow: hidden; /* Ensures the image fits within the circle */
-            flex-shrink: 0;
-        }
-
-        .icon img {
-            width: auto; /* Maintain aspect ratio */
-            height: 100%; /* Make the height fill the container */
-            object-fit: contain; /* Prevent zooming or cropping */
-        }
 
         .role {
             font-family: "Segoe UI";
@@ -254,11 +275,7 @@
             font-weight: 700;
             color: #68b2a0;
         }
-
-        .details {
-            width: 100%;
-        }
-
+        
         .details li {
             width: 100%; 
             word-wrap: break-word;
