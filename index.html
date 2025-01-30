@@ -103,6 +103,14 @@
             max-width: 1200px;
         }
 
+
+        .scroll-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            max-width: 100%;
+        }
+
         .projects-scroll {
             display: flex;
             gap: 20px;
@@ -110,16 +118,17 @@
             scroll-snap-type: x mandatory;
             padding: 20px;
             white-space: nowrap;
-            scrollbar-width: none; /* Hide scrollbar for better UX */
+            scrollbar-width: none;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
         }
-        
+    
         .projects-scroll::-webkit-scrollbar {
-            display: none; /* Hide scrollbar on Webkit browsers */
+            display: none;
         }
-        
+    
         .project-card {
-            flex: 0 0 500px; /* Set fixed width for square tiles */
-            height: 500px; /* Keep it square */
+            flex: 0 0 300px; /* Square tiles */
+            height: 300px;
             background-color: #333;
             color: white;
             border-radius: 10px;
@@ -132,11 +141,37 @@
             scroll-snap-align: center;
             transition: transform 0.3s;
         }
-        
+    
         .project-card:hover {
             transform: scale(1.05);
         }
-
+    
+        /* Scroll Buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .scroll-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        #scroll-left {
+            left: 10px;
+        }
+        
+        #scroll-right {
+            right: 10px;
+        }
 
     </style>
 </head>
@@ -178,9 +213,12 @@
         </section>
 
         <!-- Projects Section -->
-    <section id="projects">
-        <div class="projects-container">
-            <h2 class="text-center mb-4">Projects</h2>
+   <section id="projects">
+    <div class="projects-container">
+        <h2 class="text-center mb-4">Projects</h2>
+        
+        <div class="scroll-wrapper">
+            <button id="scroll-left" class="scroll-btn">❮</button>
             <div class="projects-scroll">
                 <div class="project-card">
                     <h5>Project 1</h5>
@@ -203,8 +241,11 @@
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
             </div>
+            <button id="scroll-right" class="scroll-btn">❯</button>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
         <!-- Spare Section -->
@@ -216,5 +257,21 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.querySelector(".projects-scroll");
+    const leftButton = document.getElementById("scroll-left");
+    const rightButton = document.getElementById("scroll-right");
+
+    leftButton.addEventListener("click", function () {
+        scrollContainer.scrollBy({ left: -320, behavior: "smooth" });
+    });
+
+    rightButton.addEventListener("click", function () {
+        scrollContainer.scrollBy({ left: 320, behavior: "smooth" });
+    });
+});
+
+    </script>
 </body>
 </html>
