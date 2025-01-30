@@ -118,7 +118,34 @@
             background-color: #1f211f;
             color: white;
             text-align: center;
-            min-height: calc(100vh - 70px); /* Adjust for navbar */
+            min-height: calc(100vh - 70px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Centers the buttons horizontally */
+            gap: 15px; /* Adds space between the buttons */
+            margin-top: 20px; /* Adds space between the text and the buttons */
+        }
+
+        .btn {
+            background-color: #68b2a0; /* Button background color */
+            color: white;
+            border: none;
+            border-radius: 25px; /* Rounded borders */
+            padding: 10px 20px; /* Padding inside buttons */
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #4e8a75; /* Darker shade on hover */
         }
 
         .hero-section h1 {
@@ -317,6 +344,14 @@
             <div class="container text-center">
                 <h1>Paddy Connolly</h1>
                 <p class="lead">Computer Science Student at University of Warwick</p>
+                
+                <!-- Buttons Section -->
+                <div class="button-container">
+                    <button class="btn">About</button>
+                    <button class="btn">Experience</button>
+                    <button class="btn">Projects</button>
+                    <button class="btn">Contact</button>
+                </div>
             </div>
         </section>
 
