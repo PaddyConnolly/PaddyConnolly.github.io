@@ -140,22 +140,20 @@
             display: none;
         }
     
+        /* General Styling for Project Card */
         .project-card {
-            flex: 0 0 700px; /* Square tiles */
-            height: 700px;
-            background-color: #333;
-            color: white;
+            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            scroll-snap-align: center;
-            transition: transform 0.3s;
+            width: 250px;
+            margin: 15px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
         }
-    
+        
         .project-card:hover {
             transform: scale(1.05);
         }
@@ -187,6 +185,28 @@
         #scroll-right {
             right: 10px;
         }
+
+                /* Small Icons Row */
+        .project-icons {
+            display: flex;
+            justify-content: left;
+            gap: 10px; /* Space between the icons */
+            margin-top: 10px; /* Space between title and icons */
+            margin-bottom: 10px; /* Space between icons and description */
+        }
+        
+        .small-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%; /* Circular icon */
+            object-fit: cover; /* Ensures the icon fits well inside the circle */
+            border: 2px solid #ddd; /* Optional border for better visibility */
+        }
+
+
+
+/* Other existing styles remain unchanged... */
+
 
     </style>
 </head>
@@ -228,7 +248,7 @@
         </section>
 
         <!-- Projects Section -->
-   <section id="projects">
+<section id="projects">
     <div class="projects-container">
         <h2 class="text-center mb-4">Projects</h2>
         
@@ -236,23 +256,83 @@
             <button id="scroll-left" class="scroll-btn">❮</button>
             <div class="projects-scroll">
                 <div class="project-card">
-                    <h5>Project 1</h5>
+                    <div class="project-icon">
+                        <img src="icon-placeholder.png" alt="Icon" />
+                    </div>
+                    <h5 class="project-title">Project 1</h5>
+                    <!-- Small Icons Row -->
+                    <div class="project-icons">
+                        <img src="small-icon1.png" alt="Icon 1" class="small-icon">
+                        <img src="small-icon2.png" alt="Icon 2" class="small-icon">
+                        <img src="small-icon3.png" alt="Icon 3" class="small-icon">
+                        <img src="small-icon4.png" alt="Icon 4" class="small-icon">
+                    </div>
                     <p>Description of project 1. Technologies used:</p>
+                    <ul class="project-details">
+                        <li>Technology 1</li>
+                        <li>Technology 2</li>
+                        <li>Technology 3</li>
+                    </ul>
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h5>Project 2</h5>
+                    <div class="project-icon">
+                        <img src="icon-placeholder.png" alt="Icon" />
+                    </div>
+                    <h5 class="project-title">Project 2</h5>
+                    <!-- Small Icons Row -->
+                    <div class="project-icons">
+                        <img src="small-icon1.png" alt="Icon 1" class="small-icon">
+                        <img src="small-icon2.png" alt="Icon 2" class="small-icon">
+                        <img src="small-icon3.png" alt="Icon 3" class="small-icon">
+                        <img src="small-icon4.png" alt="Icon 4" class="small-icon">
+                    </div>
                     <p>Description of project 2. Technologies used:</p>
+                    <ul class="project-details">
+                        <li>Technology 1</li>
+                        <li>Technology 2</li>
+                        <li>Technology 3</li>
+                    </ul>
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h5>Project 3</h5>
+                    <div class="project-icon">
+                        <img src="icon-placeholder.png" alt="Icon" />
+                    </div>
+                    <h5 class="project-title">Project 3</h5>
+                    <!-- Small Icons Row -->
+                    <div class="project-icons">
+                        <img src="small-icon1.png" alt="Icon 1" class="small-icon">
+                        <img src="small-icon2.png" alt="Icon 2" class="small-icon">
+                        <img src="small-icon3.png" alt="Icon 3" class="small-icon">
+                        <img src="small-icon4.png" alt="Icon 4" class="small-icon">
+                    </div>
                     <p>Description of project 3. Technologies used:</p>
+                    <ul class="project-details">
+                        <li>Technology 1</li>
+                        <li>Technology 2</li>
+                        <li>Technology 3</li>
+                    </ul>
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h5>Project 4</h5>
+                    <div class="project-icon">
+                        <img src="icon-placeholder.png" alt="Icon" />
+                    </div>
+                    <h5 class="project-title">Project 4</h5>
+                    <!-- Small Icons Row -->
+                    <div class="project-icons">
+                        <img src="small-icon1.png" alt="Icon 1" class="small-icon">
+                        <img src="small-icon2.png" alt="Icon 2" class="small-icon">
+                        <img src="small-icon3.png" alt="Icon 3" class="small-icon">
+                        <img src="small-icon4.png" alt="Icon 4" class="small-icon">
+                    </div>
                     <p>Description of project 4. Technologies used:</p>
+                    <ul class="project-details">
+                        <li>Technology 1</li>
+                        <li>Technology 2</li>
+                        <li>Technology 3</li>
+                    </ul>
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
             </div>
