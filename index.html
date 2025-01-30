@@ -44,12 +44,30 @@
         /* Pulsing circle animation */
         .pulse-circle {
           position: absolute;
-          width: 500px;
-          height: 500px;
+          width: 600px;
+          height: 600px;
           border-radius: 50%;
           border: 1px solid grey;
           background-color: transparent;
           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    
+        .pulse-circle:nth-child(2) {
+          width: 300px; /* Size of second circle */
+          height: 300px; /* Size of second circle */
+          animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Slightly slower */
+        }
+    
+        .pulse-circle:nth-child(3) {
+          width: 900px; /* Size of third circle */
+          height: 900px; /* Size of third circle */
+          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Slower pulse */
+        }
+    
+        .pulse-circle:nth-child(4) {
+          width: 1500px; /* Size of fourth circle */
+          height: 1500px; /* Size of fourth circle */
+          animation: pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Even slower pulse */
         }
         
         /* Ping circle animation */
@@ -57,21 +75,12 @@
           position: absolute;
           width: 300px;
           height: 300px;
+          border: 1px solid grey;
           border-radius: 50%;
-          background-color: grey;
+          background-color: transparent;
           animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
         
-        /* Container for the gradient */
-        .gradient-container {
-          position: absolute;
-          width: 1000px;
-          height: 1000px;
-          border-radius: 50%;
-          background-image: linear-gradient(45deg, #a8a8a8, #707070);
-          animation: pulse 5s ease-in-out infinite;
-          opacity: 0.2;
-        }
         
         h3 {
             color: white;
@@ -439,7 +448,6 @@
     <div class="scroll-container">
         <!-- Hero Section -->
             <section id="hero" class="hero-section">
-                <div class="gradient-container"></div>
                 <div class="pulse-circle animate-pulse"></div>
                 <div class="ping-circle animate-ping"></div>
                 <div class="container text-center">
