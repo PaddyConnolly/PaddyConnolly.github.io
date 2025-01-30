@@ -330,7 +330,22 @@
             display: flex; 
             align-items: center; 
             gap: 20px;
-            font-size: 18px;
+            font-size: 30px;
+        }
+
+        .contact-details img {
+            width: 50px;
+        }
+
+        .cv-button {
+            color: white; 
+            border: 1px solid white; 
+            border-radius: 25px; 
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-spacing: 10px;
         }
 
     </style>
@@ -492,7 +507,9 @@
                     <a href="#" class="btn btn-primary">View Project</a>
                 </div>
             </div>
-            <button id="scroll-right" class="scroll-btn">❯</button>
+            <a href="assets/cv.pdf" download>
+                <button id="scroll-right" class="scroll-btn">DOWNLOAD CV</button>
+            </a>
         </div>
     </div>
 </section>
@@ -504,21 +521,18 @@
             <h2 class="section-title">CONTACT</h2>
             <h3>Feel free to reach out if you would like to work together!</h3>
             <div class="contact-details">
-                <img src="assets/telephone.png" style="width:30px;">
+                <img src="assets/telephone.png">
                 <p>+44 7799 423 691</p>
             </div>
             <div class="contact-details">
-                <img src="assets/message.png" style="width:30px;">
+                <img src="assets/message.png">
                 <p>paddy1921@icloud.com</p>
             </div>
             <div class="contact-details">
-                <img src="assets/location.png" style="width:30px;">
+                <img src="assets/location.png">
                 <p>Ascot, Berkshire, UK</p>
             </div>
-            
-            
-            
-
+            <button class="cv-button"><a href="assets/cv.pdf"></a></button>
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
