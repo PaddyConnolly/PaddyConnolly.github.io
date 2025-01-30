@@ -218,6 +218,12 @@
             overflow: hidden; /* Ensures the image fits within the circle */
         }
 
+        .icon img {
+            width: auto; /* Maintain aspect ratio */
+            height: 100%; /* Make the height fill the container */
+            object-fit: contain; /* Prevent zooming or cropping */
+        }
+
 
 
 /* Other existing styles remain unchanged... */
