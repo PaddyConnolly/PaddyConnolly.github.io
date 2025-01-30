@@ -30,6 +30,10 @@
     section {
         height: calc(100vh - var(--navbar-height));
         scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         padding: 20px;
     }
 
@@ -88,6 +92,10 @@
     .hero-section {
         text-align: center;
         min-height: calc(100vh - var(--navbar-height));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .hero-section h1 {
@@ -99,6 +107,9 @@
     .projects-container {
         width: 100%;
         padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .scroll-wrapper {
@@ -134,8 +145,9 @@
         height: 500px;
         margin: 15px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start; /* Ensures content starts at the top */
         position: relative;
         scroll-snap-align: start;
         box-sizing: border-box;
@@ -156,6 +168,9 @@
         flex: 1;
         overflow: hidden;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     /* Scroll Buttons */
@@ -244,6 +259,7 @@
         overflow-wrap: break-word;
     }
 </style>
+
 
 </head>
 <body>
