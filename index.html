@@ -103,6 +103,41 @@
             max-width: 1200px;
         }
 
+        .projects-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px;
+            white-space: nowrap;
+            scrollbar-width: none; /* Hide scrollbar for better UX */
+        }
+        
+        .projects-scroll::-webkit-scrollbar {
+            display: none; /* Hide scrollbar on Webkit browsers */
+        }
+        
+        .project-card {
+            flex: 0 0 300px; /* Set fixed width for square tiles */
+            height: 300px; /* Keep it square */
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+
     </style>
 </head>
 <body>
@@ -143,40 +178,34 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects">
-            <div class="projects-container">
-                <h2 class="text-center mb-4">Projects</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 1</h5>
-                                <p class="card-text">Description of project 1. Technologies used:</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 2</h5>
-                                <p class="card-text">Description of project 2. Technologies used: </p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 3</h5>
-                                <p class="card-text">Description of project 3. Technologies used: </p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
+    <section id="projects">
+        <div class="projects-container">
+            <h2 class="text-center mb-4">Projects</h2>
+            <div class="projects-scroll">
+                <div class="project-card">
+                    <h5>Project 1</h5>
+                    <p>Description of project 1. Technologies used:</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h5>Project 2</h5>
+                    <p>Description of project 2. Technologies used:</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h5>Project 3</h5>
+                    <p>Description of project 3. Technologies used:</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h5>Project 4</h5>
+                    <p>Description of project 4. Technologies used:</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
 
         <!-- Spare Section -->
         <section id="spare">
