@@ -18,6 +18,7 @@
 
         html {
             scroll-behavior: auto;
+            overflow: auto;
             scroll-padding-top: 70px; /* Add padding for the navbar */
         }
 
@@ -71,7 +72,6 @@
           border: 1px solid grey;
           border-radius: 50%;
           background-color: transparent;
-          overflow: hidden;
           z-index: -1;
           animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
@@ -100,7 +100,6 @@
         
         .scroll-container {
             scroll-snap-type: y mandatory;
-            overflow-y: scroll;
             scrollbar-width: thin; /* Set the width of the scrollbar */
             scrollbar-color: white transparent; /* Set the color of the thumb and track */
             height: var(--navbar-height);
@@ -283,7 +282,6 @@
             scroll-snap-align: start;
             box-sizing: border-box;
             flex-shrink: 0;
-            overflow: hidden;
         }
 
         .card-content {
@@ -313,7 +311,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
             flex-shrink: 0; 
         }
         
@@ -325,7 +322,6 @@
         .bottom-section {
             margin-top: 15px;
             flex-grow: 1;
-            overflow: hidden;
         }
         
         .details {
