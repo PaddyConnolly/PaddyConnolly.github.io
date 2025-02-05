@@ -652,25 +652,46 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Select all anchor links inside the button container
+            const scrollSpeed = 0.1; // Adjust this value (lower = slower, higher = faster)
+        
             document.querySelectorAll(".button-container a").forEach(anchor => {
                 anchor.addEventListener("click", function (event) {
-                    event.preventDefault(); // Prevent default anchor behavior
-                    
-                    const targetId = this.getAttribute("href").substring(1); // Get the section ID
-                    const targetSection = document.getElementById(targetId); // Find the section
-                    
+                    event.preventDefault();
+        
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+        
                     if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
+                        smoothScroll(targetSection, scrollSpeed);
                     }
                 });
             });
+        
+            function smoothScroll(target, speed) {
+                const startPosition = window.scrollY;
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+        
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / (1000 * speed), 1); // Adjust speed
+                    window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+        
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+        
+                function easeInOutQuad(t) {
+                    return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                }
+        
+                requestAnimationFrame(animation);
+            }
         });
     </script>
-        
 
 
 </body>
