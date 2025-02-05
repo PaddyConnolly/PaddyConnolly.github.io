@@ -652,7 +652,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const scrollSpeed = 0.1; // Adjust this value (lower = slower, higher = faster)
+            const scrollSpeed = 5; // Adjust this value (higher = faster, lower = slower)
         
             document.querySelectorAll(".button-container a").forEach(anchor => {
                 anchor.addEventListener("click", function (event) {
@@ -662,25 +662,26 @@
                     const targetSection = document.getElementById(targetId);
         
                     if (targetSection) {
-                        smoothScroll(targetSection, scrollSpeed);
+                        smoothScrollTo(targetSection.offsetTop, scrollSpeed);
                     }
                 });
             });
         
-            function smoothScroll(target, speed) {
-                const startPosition = window.scrollY;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-                const distance = targetPosition - startPosition;
+            function smoothScrollTo(targetY, speed) {
+                const startY = window.scrollY;
+                const distance = targetY - startY;
+                const duration = Math.abs(distance) / speed; // Adjust duration based on distance
                 let startTime = null;
         
-                function animation(currentTime) {
-                    if (startTime === null) startTime = currentTime;
+                function scrollAnimation(currentTime) {
+                    if (!startTime) startTime = currentTime;
                     const elapsedTime = currentTime - startTime;
-                    const progress = Math.min(elapsedTime / (1000 * speed), 1); // Adjust speed
-                    window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+                    const progress = Math.min(elapsedTime / duration, 1);
+        
+                    window.scrollTo(0, startY + distance * easeInOutQuad(progress));
         
                     if (progress < 1) {
-                        requestAnimationFrame(animation);
+                        requestAnimationFrame(scrollAnimation);
                     }
                 }
         
@@ -688,9 +689,10 @@
                     return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
                 }
         
-                requestAnimationFrame(animation);
+                requestAnimationFrame(scrollAnimation);
             }
-        });
+});
+
     </script>
 
 
