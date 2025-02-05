@@ -651,23 +651,35 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+         document.addEventListener("DOMContentLoaded", function () {
+            console.log("DOM fully loaded and parsed");
+        
             const scrollSpeed = 5; // Adjust this value (higher = faster, lower = slower)
         
             document.querySelectorAll(".button-container a").forEach(anchor => {
+                console.log("Found button:", anchor);
+        
                 anchor.addEventListener("click", function (event) {
                     event.preventDefault();
+                    console.log("Button clicked:", this);
         
                     const targetId = this.getAttribute("href").substring(1);
+                    console.log("Target section ID:", targetId);
+        
                     const targetSection = document.getElementById(targetId);
         
                     if (targetSection) {
+                        console.log("Target section found:", targetSection);
                         smoothScrollTo(targetSection.offsetTop, scrollSpeed);
+                    } else {
+                        console.warn("Target section not found:", targetId);
                     }
                 });
             });
         
             function smoothScrollTo(targetY, speed) {
+                console.log("Starting smooth scroll to:", targetY, "with speed:", speed);
+        
                 const startY = window.scrollY;
                 const distance = targetY - startY;
                 const duration = Math.abs(distance) / speed; // Adjust duration based on distance
@@ -680,8 +692,12 @@
         
                     window.scrollTo(0, startY + distance * easeInOutQuad(progress));
         
+                    console.log("Scrolling... Progress:", progress, "Current Y:", window.scrollY);
+        
                     if (progress < 1) {
                         requestAnimationFrame(scrollAnimation);
+                    } else {
+                        console.log("Scrolling finished.");
                     }
                 }
         
@@ -691,7 +707,7 @@
         
                 requestAnimationFrame(scrollAnimation);
             }
-});
+        });
 
     </script>
 
