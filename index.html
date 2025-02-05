@@ -645,9 +645,7 @@
         });
     </script>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded and parsed");
-
+    document.querySelector('.scroll-container').style.setProperty('overflow-y', 'visible');
     const scrollSpeed = 5; // Adjust this value (higher = faster, lower = slower)
 
     document.querySelectorAll(".button-container a").forEach(anchor => {
@@ -673,6 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.history.pushState(null, null, `#${targetId}`);
 
                 smoothScrollTo(targetY, scrollSpeed);
+                document.querySelector('.scroll-container').style.setProperty('overflow-y', 'scroll');
             } else {
                 console.warn("Target section not found:", targetId);
             }
