@@ -718,6 +718,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </script>
+    <script>
+        
+                
+        
+        // Optional: Ensure scrolling is smooth even if the user manually scrolls
+        document.querySelector('.scroll-container').addEventListener('wheel', (event) => {
+          event.preventDefault(); // Prevent default scroll behavior (optional)
+          const scrollContainer = document.querySelector('.scroll-container');
+          const currentScrollPosition = scrollContainer.scrollTop;
+          const sectionHeight = window.innerHeight; // Height of one section
+          
+          if (event.deltaY > 0) {
+            // Scroll down
+            scrollContainer.scrollTo({
+              top: Math.ceil((currentScrollPosition + sectionHeight) / sectionHeight) * sectionHeight,
+              behavior: 'smooth',
+            });
+          } else {
+            // Scroll up
+            scrollContainer.scrollTo({
+              top: Math.floor((currentScrollPosition - sectionHeight) / sectionHeight) * sectionHeight,
+              behavior: 'smooth',
+            });
+          }
+        });
+    </script>
 
 
 </body>
