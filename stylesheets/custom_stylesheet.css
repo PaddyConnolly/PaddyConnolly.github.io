@@ -295,7 +295,7 @@ section {
     padding: 20px;
     text-align: left;
     width: 900px;
-    height: auto;
+    height: 900px;
     margin: 15px;
     display: flex;
     flex-direction: row;
@@ -309,6 +309,7 @@ section {
 
 #experience .card {
     width: 600px;
+    height: 600px;
 }
 
 .card-content {
