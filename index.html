@@ -651,9 +651,10 @@
         console.log("Found button:", anchor);
 
         anchor.addEventListener("click", function (event) {
-            document.querySelector('.scroll-container').style.setProperty('overflow-y', 'visible');
             event.preventDefault();
             console.log("Button clicked:", this);
+            document.querySelector('.scroll-container').style.setProperty('overflow-y', 'visible');
+            console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
 
             const targetId = this.getAttribute("href").substring(1);
             console.log("Target section ID:", targetId);
@@ -671,7 +672,10 @@
                 window.history.pushState(null, null, `#${targetId}`);
 
                 smoothScrollTo(targetY, scrollSpeed);
+                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
                 document.querySelector('.scroll-container').style.setProperty('overflow-y', 'scroll');
+                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
+
             } else {
                 console.warn("Target section not found:", targetId);
             }
