@@ -3,6 +3,13 @@
 <head>    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+
+        :root {
+            --black: #1f211f;
+            --teal: #68b2a0;
+            --navbar-height: calc(100vh - 70px);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +25,7 @@
         body {
             padding-top: 70px; /* Add padding to body to prevent content from going under navbar */
             color: white;
-            background-color: #1f211f;
+            background-color: --black;
             position: absolute;
             inset: 0;
             display: flex;
@@ -76,8 +83,6 @@
           animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; /* Slightly slower */
         }
         
-
-        
         
         h3 {
             color: white;
@@ -99,7 +104,7 @@
             overflow-y: scroll;
             scrollbar-width: thin; /* Set the width of the scrollbar */
             scrollbar-color: white transparent; /* Set the color of the thumb and track */
-            height: calc(100vh - 70px);
+            height: --navbar-height;
         }
         
         ::-webkit-scrollbar {
@@ -125,7 +130,7 @@
         }
 
         section {
-            height: calc(100vh - 70px);
+            height: --navbar-height;
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
@@ -202,7 +207,7 @@
             position: relative;
             color: white;
             text-align: center;
-            min-height: calc(100vh - 70px); 
+            min-height: --navbar-height; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -229,7 +234,7 @@
         
         .btn:hover {
             background-color: white; 
-            color: #1f211f; 
+            color: --black; 
         }
 
         .hero-section h1 {
@@ -263,7 +268,7 @@
     
         /* General Styling for Project Card */
         .card {
-            background-color: #1f211f;
+            background-color: --black;
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
@@ -395,7 +400,7 @@
         .company {
             font-family: "Segoe UI";
             font-weight: 700;
-            color: #68b2a0;
+            color: --teal;
         }
         
         .details li {
@@ -645,6 +650,27 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all anchor links inside the button-container
+            document.querySelectorAll(".button-container a").forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+    
+                    const targetId = this.getAttribute("href").substring(1); // Get section ID
+                    const targetSection = document.getElementById(targetId); // Find the target section
+    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 70, // Adjust for navbar height
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
 
 </body>
 </html>
