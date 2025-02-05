@@ -36,11 +36,13 @@ body {
 }
 
 .home {
-    width: 40px;
-    height: 40px;
+    background-color: var(--teal);
+    width: 60px;
+    height: 60px;
     transition: transform 0.3s ease, opacity 0.3s;
     border-radius: 50%;
     border: 1px solid transparent;
+    padding: 8px;
 }
 
 .home img {
