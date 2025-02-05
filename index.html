@@ -652,7 +652,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
 
-    const scrollSpeed = 1; // Adjust this value (higher = faster, lower = slower)
+    const scrollSpeed = 5; // Adjust this value (higher = faster, lower = slower)
 
     document.querySelectorAll(".button-container a").forEach(anchor => {
         console.log("Found button:", anchor);
@@ -668,13 +668,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (targetSection) {
                 console.log("Target section found:", targetSection);
-                
-                // Calculate absolute Y position
+
+                // Compute absolute target position
                 const targetY = targetSection.getBoundingClientRect().top + window.scrollY;
                 console.log("Computed target scroll position:", targetY);
 
-                // Update URL manually
-                window.location.hash = targetId;
+                // Update URL without jumping
+                window.history.pushState(null, null, `#${targetId}`);
 
                 smoothScrollTo(targetY, scrollSpeed);
             } else {
@@ -686,20 +686,24 @@ document.addEventListener("DOMContentLoaded", function () {
     function smoothScrollTo(targetY, speed) {
         console.log("Starting smooth scroll to:", targetY, "with speed:", speed);
 
-        const startY = window.scrollY;
+        const startY = window.scrollY || document.documentElement.scrollTop;
         const distance = targetY - startY;
-        const duration = Math.abs(distance) / speed; // Adjust duration based on distance
+        const duration = Math.abs(distance) / speed;
         let startTime = null;
 
         function scrollAnimation(currentTime) {
             if (!startTime) startTime = currentTime;
             const elapsedTime = currentTime - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
+            
+            const newY = startY + distance * easeInOutQuad(progress);
 
-            // Use window.scrollTo for better compatibility
-            window.scrollTo(0, startY + distance * easeInOutQuad(progress));
+            // Try multiple scrolling methods to ensure compatibility
+            document.documentElement.scrollTop = newY;
+            document.body.scrollTop = newY;
+            window.scrollTo(0, newY);
 
-            console.log("Scrolling... Progress:", progress, "Current Y:", window.scrollY);
+            console.log("Scrolling... Progress:", progress, "Current Y:", window.scrollY || document.documentElement.scrollTop);
 
             if (progress < 1) {
                 requestAnimationFrame(scrollAnimation);
