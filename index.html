@@ -652,24 +652,25 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Select all anchor links inside the button-container
+            // Select all anchor links inside the button container
             document.querySelectorAll(".button-container a").forEach(anchor => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault(); // Prevent default anchor behavior
-    
-                    const targetId = this.getAttribute("href").substring(1); // Get section ID
-                    const targetSection = document.getElementById(targetId); // Find the target section
-    
+                anchor.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    
+                    const targetId = this.getAttribute("href").substring(1); // Get the section ID
+                    const targetSection = document.getElementById(targetId); // Find the section
+                    
                     if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop, // Adjust for navbar height
-                            behavior: "smooth"
+                        targetSection.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
                         });
                     }
                 });
             });
         });
     </script>
+        
 
 
 </body>
