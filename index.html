@@ -25,7 +25,7 @@
         body {
             padding-top: 70px; /* Add padding to body to prevent content from going under navbar */
             color: white;
-            background-color: --black;
+            background-color: var(--black);
             position: absolute;
             inset: 0;
             display: flex;
@@ -104,7 +104,7 @@
             overflow-y: scroll;
             scrollbar-width: thin; /* Set the width of the scrollbar */
             scrollbar-color: white transparent; /* Set the color of the thumb and track */
-            height: --navbar-height;
+            height: var(--navbar-height);
         }
         
         ::-webkit-scrollbar {
@@ -130,7 +130,7 @@
         }
 
         section {
-            height: --navbar-height;
+            height: var(--navbar-height);
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
@@ -207,7 +207,7 @@
             position: relative;
             color: white;
             text-align: center;
-            min-height: --navbar-height; 
+            min-height: var(--navbar-height); 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -234,7 +234,7 @@
         
         .btn:hover {
             background-color: white; 
-            color: --black; 
+            color: var(--black); 
         }
 
         .hero-section h1 {
@@ -268,7 +268,7 @@
     
         /* General Styling for Project Card */
         .card {
-            background-color: --black;
+            background-color: var(--black);
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
@@ -400,7 +400,7 @@
         .company {
             font-family: "Segoe UI";
             font-weight: 700;
-            color: --teal;
+            color: var(--teal);
         }
         
         .details li {
