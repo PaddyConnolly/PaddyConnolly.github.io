@@ -672,10 +672,7 @@
                 window.history.pushState(null, null, `#${targetId}`);
 
                 smoothScrollTo(targetY, scrollSpeed);
-                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
-                document.querySelector('.scroll-container').style.setProperty('overflow-y', 'scroll');
-                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
-
+  
             } else {
                 console.warn("Target section not found:", targetId);
             }
@@ -707,6 +704,10 @@
             if (progress < 1) {
                 requestAnimationFrame(scrollAnimation);
             } else {
+                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
+                document.querySelector('.scroll-container').style.setProperty('overflow-y', 'scroll');
+                console.log(window.getComputedStyle(document.querySelector('.scroll-container')).getPropertyValue('overflow-y'));
+
                 console.log("Scrolling finished.");
             }
         }
