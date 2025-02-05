@@ -12,7 +12,8 @@
 
 html {
     scroll-behavior: auto;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     scroll-padding-top: 70px; /* Add padding for the navbar */
 }
 
