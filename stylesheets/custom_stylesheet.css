@@ -278,7 +278,7 @@ section {
 
 .project-header img {
     border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .project-description {
