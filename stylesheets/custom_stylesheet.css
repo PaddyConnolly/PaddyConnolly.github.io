@@ -271,6 +271,12 @@ section {
 .project-header {
     height: 50%;
     width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.project-header img {
     border: 1px solid transparent;
     border-radius: 5px;
 }
