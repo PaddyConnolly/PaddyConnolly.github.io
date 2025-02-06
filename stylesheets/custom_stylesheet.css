@@ -268,10 +268,13 @@ section {
     padding: 40px;
 }
 
-.project-header-img {
+.project-header {
     width: 100%;
     border: 1px solid transparent;
     border-radius: 5px;
+}
+
+.project-description {
 }
 
 .scroll-wrapper {
