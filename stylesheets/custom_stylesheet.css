@@ -357,6 +357,8 @@ section {
 .icon img {
     height: 100%;
     object-fit: contain;
+    border: 1px solid transparent;
+    border-radius: 50%;
 }
 
 .bottom-section {
