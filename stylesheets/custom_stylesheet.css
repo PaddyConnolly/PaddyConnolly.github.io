@@ -432,7 +432,7 @@ section {
     background-color: white;
     border-radius: 50%; /* Circular icon */
     object-fit: cover; /* Ensures the icon fits well inside the circle */
-    border: 2px solid #ddd; /* Optional border for better visibility */
+    border: 1px solid transparent; /* Optional border for better visibility */
 }
 
 
