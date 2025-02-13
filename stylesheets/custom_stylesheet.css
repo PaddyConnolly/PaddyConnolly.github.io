@@ -309,6 +309,7 @@ section {
     width: 100%;
     scrollbar-width: none;
     z-index: 9;
+    overflow-x: auto;
 }
 
 
