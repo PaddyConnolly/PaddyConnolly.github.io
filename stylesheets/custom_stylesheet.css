@@ -410,11 +410,19 @@ section {
     background: rgba(255, 255, 255, 0.5);
 }
 
-#scroll-left {
+#scroll-left-0 {
     left: 10px;
 }
 
-#scroll-right {
+#scroll-right-0 {
+    right: 10px;
+}
+
+#scroll-left-1 {
+    left: 10px;
+}
+
+#scroll-right-1 {
     right: 10px;
 }
 
