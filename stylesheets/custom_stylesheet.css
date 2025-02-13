@@ -318,8 +318,9 @@ section {
     border-radius: 10px;
     padding: 20px;
     text-align: left;
-    width: 75vw;
-    height: 75vh;
+    max-width: 75vw;
+    max-height: 75vh;
+    aspect-ratio: 1/1;
     margin: 15px;
     display: flex;
     flex-direction: row;
