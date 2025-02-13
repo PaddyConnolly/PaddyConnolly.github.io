@@ -224,6 +224,32 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
     </script>
+    <script>
+        function adjustImages() {
+            const projects = document.querySelector('.projects-container')
+            projects.querySelectorAll('.card').forEach(card => {
+                const content = card.querySelector('.card-content');
+                const images = card.querySelectorAll('img');
+                let scaleFactor = 1;
+        
+                // Check if content is overflowing
+                if (content.scrollHeight > card.clientHeight || content.scrollWidth > card.clientWidth) {
+                    const overflowY = content.scrollHeight / card.clientHeight;
+                    const overflowX = content.scrollWidth / card.clientWidth;
+                    scaleFactor = 1 / Math.max(overflowY, overflowX); // Scale factor based on biggest overflow
+                }
+        
+                // Apply scale only to images
+                images.forEach(img => {
+                    img.style.transform = `scale(${Math.min(scaleFactor, 1)})`; // Prevent upscaling
+                });
+            });
+        }
+
+        // Run on page load & resize
+        window.addEventListener('load', adjustImages);
+        window.addEventListener('resize', adjustImages);
+    </script>
  
 </body>
 </html>
