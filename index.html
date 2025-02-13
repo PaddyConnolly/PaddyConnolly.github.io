@@ -210,15 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
             cards.forEach(card => card.classList.add("no-hover"));
         }
 
+        function getScrollAmount() {
+            return 0.7 * window.innerWidth;
+        }
         // Add event listeners for buttons
         leftButton.addEventListener("click", function () {
-            console.log(`Container ${index}: left`);
-            scrollContainer.scrollBy({ left: -320, behavior: "smooth" });
+            scrollContainer.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
         });
 
         rightButton.addEventListener("click", function () {
-            console.log(`Container ${index}: right`);
-            scrollContainer.scrollBy({ left: 320, behavior: "smooth" });
+            scrollContainer.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
         });
     });
 });
