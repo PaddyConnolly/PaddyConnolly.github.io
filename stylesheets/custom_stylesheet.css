@@ -75,8 +75,8 @@ body {
 /* Pulsing circle animation */
 .pulse-circle {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 75vw;
+  height: 75vh;
   border-radius: 50%;
   border: 1px solid grey;
   background-color: transparent;
@@ -100,8 +100,8 @@ body {
 }
 
 .ping-circle:nth-child(2) {
-  width: 300px; /* Size of second circle */
-  height: 300px; /* Size of second circle */
+  width: 37vh; /* Size of second circle */
+  height: 37vh; /* Size of second circle */
 }
 
 
@@ -318,8 +318,8 @@ section {
     border-radius: 10px;
     padding: 20px;
     text-align: left;
-    width: 600px;
-    height: 600px;
+    width: 75vw;
+    height: 75vh;
     margin: 15px;
     display: flex;
     flex-direction: row;
