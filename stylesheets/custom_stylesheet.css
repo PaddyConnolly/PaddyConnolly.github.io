@@ -75,8 +75,8 @@ body {
 /* Pulsing circle animation */
 .pulse-circle {
   position: absolute;
-  width: 75vw;
-  height: 75vh;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
   border: 1px solid grey;
   background-color: transparent;
