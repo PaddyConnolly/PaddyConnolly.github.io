@@ -483,8 +483,7 @@ section {
 }
 
 #contact .section-title {
-    position: relative;
-    bottom: 70px;
+    margin-bottom: auto;
 
 }
 
