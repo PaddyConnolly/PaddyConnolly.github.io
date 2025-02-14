@@ -306,6 +306,10 @@ section {
     margin-top: auto;
 }
 
+.project-description p {
+    margin-top: auto;
+}
+
 .scroll-wrapper {
     display: flex;
     align-items: center;
