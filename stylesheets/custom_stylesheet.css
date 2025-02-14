@@ -475,7 +475,7 @@ section {
     color: var(--teal);
 }
 
-.bottom-section li {
+.bottom-section {
     font-size: 18px;
     width: 100%; 
     word-wrap: break-word;
