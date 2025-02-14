@@ -4,13 +4,13 @@
     --navbar-height: calc(100vh - 70px);
 }
 
-@supports (-webkit-appearance: none) {
+@supports (-webkit-appearance: none) and (not (-moz-appearance: none)) {
   p {
     font-size: 14px; 
   }
 }
 
-@supports (-webkit-appearance: none) {
+@supports (-webkit-appearance: none) and (not (-moz-appearance: none)) {
   .details li {
     font-size: 16px; 
   }
