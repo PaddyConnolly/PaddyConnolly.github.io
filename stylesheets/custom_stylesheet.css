@@ -4,6 +4,12 @@
     --navbar-height: calc(100vh - 70px);
 }
 
+@supports (-webkit-appearance: none) {
+  p {
+    font-size: 18px; 
+  }
+}
+
 * {
     margin: 0;
     padding: 0;
